@@ -1,0 +1,8 @@
+# https://atcoder.jp/contests/abc160/submissions/37554267
+
+x = int(input())
+ans = 0
+ans += x // 500 * 1000
+x %= 500
+ans += x // 5 * 5
+print(ans)

@@ -1,0 +1,9 @@
+// https://atcoder.jp/contests/abc106/submissions/26576710
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  int a, b;
+  cin >> a >> b;
+  cout << (a - 1) * (b - 1);
+}
