@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc308/submissions/43134674
+// https://atcoder.jp/contests/abc308/submissions/43167217
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,15 +10,11 @@ int main() {
   char c[h][w];
   for(int i = 0; i < h; i++) for(int j = 0; j < w; j++) cin >> c[i][j];
 
-  queue<pair<int, int>> q;
-  q.push(make_pair(0, 0));
-
   if(c[0][0] != 's') {
     cout << "No";
     return 0;
   }
-  
-  int turn = -1;
+
   vector<char> ptn = {'s', 'n', 'u', 'k', 'e'};
   vector<int> my = {-1, 0, 1, 0};
   vector<int> mx = {0, 1, 0, -1};
@@ -26,6 +22,9 @@ int main() {
   int seen[509][509];
   for(int i = 0; i < h; i++) for(int j = 0; j < w; j++) seen[i][j] = -1;
   seen[0][0] = 0;
+
+  queue<pair<int, int>> q;
+  q.push(make_pair(0, 0));
 
   while(!q.empty()) {
     int cy = q.front().first;
@@ -45,11 +44,6 @@ int main() {
     }
   }
 
-  // for(int i = 0; i < h; i++) {
-  //   for(int j = 0; j < w; j++) {
-  //     cout << seen[i][j] << " ";
-  //   }
-  //   cout << endl;
-  // }
   cout << (seen[h - 1][w - 1] != -1 ? "Yes" : "No");
+  return 0;
 }
