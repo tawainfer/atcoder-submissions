@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc256/submissions/43221768
+// https://atcoder.jp/contests/abc279/submissions/43221744
 
 import java.util.Scanner;
 
@@ -6,11 +6,12 @@ class Main {
   public static void main(String args[]) {
     Scanner stdIn = new Scanner(System.in);
 
-    int n = stdIn.nextInt();
-    int ans = 1;
+    String s = stdIn.next();
+    int n = s.length();
 
+    int ans = 0;
     for(int i = 0; i < n; i++) {
-      ans *= 2;
+      ans += s.charAt(i) - 117;
     }
 
     System.out.println(ans);
