@@ -1,4 +1,4 @@
-# https://atcoder.jp/contests/abc305/submissions/42137434
+# https://atcoder.jp/contests/abc305/submissions/43245689
 
 h, w = map(int, input().split())
 s = [input() for _ in range(h)]
@@ -40,8 +40,6 @@ for i in range(w - 1, -1, -1):
   if check:
     d = i
     break
-
-# print(a, b, c, d)
 
 for i in range(h):
   for j in range(w):

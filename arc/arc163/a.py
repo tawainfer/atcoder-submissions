@@ -1,4 +1,4 @@
-# https://atcoder.jp/contests/arc163/submissions/43192411
+# https://atcoder.jp/contests/arc163/submissions/43245646
 
 t = int(input())
 
@@ -18,8 +18,5 @@ for _ in range(t):
 
   if check:
     print('Yes')
-    # continue
   else:
     print('No')
-
-  
