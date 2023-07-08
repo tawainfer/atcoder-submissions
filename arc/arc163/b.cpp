@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc163/submissions/43329773
+// https://atcoder.jp/contests/arc163/submissions/43330038
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -12,7 +12,7 @@ int main() {
   cin >> l >> r;
 
   vector<int> a(n - 2);
-  for(int &x : a) cin >> x;
+  for(int &z : a) cin >> z;
   sort(a.begin(), a.end());
 
   int ans = INF;
