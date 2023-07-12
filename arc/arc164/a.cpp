@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc164/submissions/43421511
+// https://atcoder.jp/contests/arc164/submissions/43497502
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -30,11 +30,6 @@ int main() {
     for(int i = 0; i < pow3.size(); i++) {
       cnt_max += pow3[i] * cnt[i];
     }
-
-    // cout << cnt_min << " " << cnt_max << endl;
-
-    // for(auto p : ptn) cout << p.first << " " << p.second << "\n";
-    // cout << endl;
 
     if(cnt_min <= k && k <= cnt_max && cnt_min % 2 == k % 2) {
       cout << "Yes\n";
