@@ -1,9 +1,10 @@
-// https://atcoder.jp/contests/abc186/submissions/25809505
+// https://atcoder.jp/contests/abc186/submissions/44254824
 
 #include <bits/stdc++.h>
 using namespace std;
+
 int main() {
-  int N, W;
-  cin >> N >> W;
-  cout << N / W;
+  int n, w;
+  cin >> n >> w;
+  cout << n / w;
 }
