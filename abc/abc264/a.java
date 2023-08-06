@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc264/submissions/43222095
+// https://atcoder.jp/contests/newjudge-2308-algorithm/submissions/44338174
 
 import java.util.Scanner;
 
@@ -6,8 +6,10 @@ class Main {
   public static void main(String args[]) {
     Scanner stdIn = new Scanner(System.in);
 
-    int l = stdIn.nextInt() - 1;
-    int r = stdIn.nextInt() - 1;
+    int l = stdIn.nextInt();
+    int r = stdIn.nextInt();
+    l--;
+    r--;
 
     String s = "atcoder";
     for(int i = 0; i < 7; i++) {

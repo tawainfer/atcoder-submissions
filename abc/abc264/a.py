@@ -1,5 +1,4 @@
-# https://atcoder.jp/contests/abc264/submissions/34665044
+# https://atcoder.jp/contests/newjudge-2308-algorithm/submissions/44338362
 
 l, r = map(int, input().split())
-s = "atcoder"
-print(s[l-1:r])
+print('atcoder'[l - 1:r])
