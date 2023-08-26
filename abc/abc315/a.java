@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc315/submissions/44816302
+// https://atcoder.jp/contests/abc315/submissions/44932963
 
 import java.util.Scanner;
 
@@ -11,9 +11,10 @@ class Main {
 
     for(int i = 0; i < s.length(); i++) {
       boolean check = true;
-      for(char c : ptn) {
-        if(s.charAt(i) == c) {
+      for(int j = 0; j < ptn.length; j++) {
+        if(s.charAt(i) == ptn[j]) {
           check = false;
+          break;
         }
       }
 
