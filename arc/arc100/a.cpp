@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc102/submissions/45097107
+// https://atcoder.jp/contests/abc102/submissions/45097145
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,7 +33,7 @@ int main() {
   }
 
   ll ans = INF;
-  for(ll i = -2; i <= 2; i++) {
+  for(ll i = 0; i <= 2; i++) {
     ans = min(ans, score(a, l + i));
   }
 
