@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc320/submissions/45600712
+// https://atcoder.jp/contests/abc320/submissions/45659359
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,9 +14,7 @@ int main() {
   cin >> m;
 
   vector<string> v(3);
-  for(int i = 0; i < 3; i++) {
-    cin >> v[i];
-  }
+  for(int i = 0; i < 3; i++) cin >> v[i];
 
   int ans = INF;
   for(int i = 0; i <= 9; i++) {
