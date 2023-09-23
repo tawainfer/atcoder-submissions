@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc165/submissions/45674531
+// https://atcoder.jp/contests/arc165/submissions/45807197
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -34,11 +34,8 @@ int main() {
     for(auto p : res) {
       cnt++;
       sum += p.first;
-      // cout << p.first << " " << p.second << endl;
     }
-    // cout << endl;
 
-    // cout << "sum=" << sum << endl;
     if(sum <= n && cnt >= 2) {
       cout << "Yes\n";
     } else {
