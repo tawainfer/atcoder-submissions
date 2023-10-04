@@ -1,18 +1,19 @@
-// https://atcoder.jp/contests/abc322/submissions/46069400
+// https://atcoder.jp/contests/abc322/submissions/46198475
 
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 
 int main() {
-  ll n, m;
+  int n, m;
   cin >> n >> m;
 
-  vector<ll> a(m);
-  for(auto&z : a) cin >> z;
+  vector<int> a(m);
+  for(int &z : a) cin >> z;
 
-  for(int i = 1; i <= n; i++) {
-    auto iter = lower_bound(a.begin(), a.end(), i);
-    cout << (*iter) - i << endl;
+  int idx = 0;
+  for(int i = 1; i < n; i++) {
+    cout << a[idx] - i << endl;
+    if(a[idx] == i) idx++;
   }
+  cout << 0;
 }
