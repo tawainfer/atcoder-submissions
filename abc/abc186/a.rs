@@ -1,11 +1,13 @@
-// https://atcoder.jp/contests/abc186/submissions/30510527
+// https://atcoder.jp/contests/abc186/submissions/47524539
 
 use proconio::input;
 
 fn main() {
     input! {
-        n: i32,
-        w: i32
+        n: u16,
+        w: u16
     }
-    println!("{}", n / w);
+
+    print!("{}", n / w);
 }
+
