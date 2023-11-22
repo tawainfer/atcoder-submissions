@@ -1,13 +1,19 @@
-// https://atcoder.jp/contests/abc184/submissions/30510426
+// https://atcoder.jp/contests/abc184/submissions/47813260
 
 use proconio::input;
 
+fn max(a: u16, b: u16) -> u16 {
+    if a > b {a} else {b}
+}
+
 fn main() {
     input! {
-        a: i32,
-        b: i32,
-        c: i32,
-        d: i32
+        a: i16,
+        b: i16,
+        c: i16,
+        d: i16
     }
-    println!("{}", a * d - b * c);
+
+    print!("{}", a * d - b * c);
 }
+
