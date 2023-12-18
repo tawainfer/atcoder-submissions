@@ -1,8 +1,8 @@
-# https://atcoder.jp/contests/abc332/submissions/48443567
+# https://atcoder.jp/contests/abc332/submissions/48633175
 
 n, s, k = map(int, input().split())
-ans = 0
 
+ans = 0
 for _ in range(n):
   p, q = map(int, input().split())
   ans += p * q

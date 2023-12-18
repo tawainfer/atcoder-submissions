@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc332/submissions/48443721
+// https://atcoder.jp/contests/abc332/submissions/48634768
 
 using static System.Console;
 
@@ -10,7 +10,7 @@ public class A
     int n = t[0];
     int s = t[1];
     int k = t[2];
-    
+
     int ans = 0;
     for(int _ = 0; _ < n; _++)
     {
