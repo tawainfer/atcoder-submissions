@@ -1,4 +1,4 @@
-atcoder-submission
+atcoder-submissions
 =====
 AtCoderに提出したACコードの一覧です。
 
