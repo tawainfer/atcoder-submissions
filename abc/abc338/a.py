@@ -1,4 +1,4 @@
-# https://atcoder.jp/contests/abc338/submissions/49692359
+# https://atcoder.jp/contests/abc338/submissions/49754179
 
 s = input()
 
