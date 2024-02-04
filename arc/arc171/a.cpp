@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc171/submissions/50023840
+// https://atcoder.jp/contests/arc171/submissions/50023937
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,11 +16,7 @@ int main() {
       continue;
     }
 
-    int ok = (n - n / 2) * (n - a);
-    if(a >= (n / 2)) {
-      ok = (n - a) * (n - a);
-    }
-
+    int ok = (n - max(n / 2, a)) * (n - a);
     cout << (b <= ok ? "Yes\n" : "No\n");
   }
 }
