@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc171/submissions/50007958
+// https://atcoder.jp/contests/arc171/submissions/50023840
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,7 +16,7 @@ int main() {
       continue;
     }
 
-    int ok = (n - n / 2) * (n - n / 2) + (n / 2 - a) * (n - n / 2);
+    int ok = (n - n / 2) * (n - a);
     if(a >= (n / 2)) {
       ok = (n - a) * (n - a);
     }
