@@ -1,9 +1,4 @@
-# https://atcoder.jp/contests/abc340/submissions/50141930
+# https://atcoder.jp/contests/abc340/submissions/50206048
 
 a, b, d = map(int, input().split())
-
-while 1:
-  print(a, end = ' ')
-  if a == b:
-    break
-  a += d
+print(*range(a, b + 1, d))
