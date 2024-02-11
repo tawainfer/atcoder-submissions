@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc340/submissions/50172186
+// https://atcoder.jp/contests/abc340/submissions/50205510
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,10 +21,6 @@ int main() {
   vector<ll> dp(n + 1, INF);
   dp[1] = 0;
 
-  // for(int i = 1; i <= n - 1; i++) {
-  //   dp[i + 1] = min(dp[i + 1], dp[i] + a[i]);
-  // }
-
   vector<vector<pair<ll, ll>>> g(n + 1);
   vector<ll> in(n + 1, 0);
   for(int i = 1; i <= n - 1; i++) {
@@ -34,17 +30,6 @@ int main() {
     in[i + 1]++;
   }
 
-  // for(auto z : in) cout << z << " ";
-  // cout << endl;
-
-  // queue<ll> q;
-  // for(int i = 1; i <= n - 1; i++) {
-  //   if(in[i] == 0) {
-  //     q.push(i);
-  //   }
-  // }
-  // q.push(1);
-
   priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> q;
   q.push(make_pair(dp[1], 1));
 
@@ -53,7 +38,6 @@ int main() {
     ll cp = q.top().second;
     q.pop();
     if(dp[cp] < cc) continue;
-    // cout << "cp=" << cp << endl;
 
     for(auto p : g[cp]) {
       ll ep = p.first;
@@ -65,10 +49,6 @@ int main() {
       }
     }
   }
-
-  // for(int i = 1; i <= n - 1; i++) {
-  //   dp[i + 1] = min(dp[i + 1], dp[i] + a[i]);
-  // }
 
   cout << dp[n];
 }
