@@ -1,7 +1,3 @@
-# https://atcoder.jp/contests/abc341/submissions/50330063
+# https://atcoder.jp/contests/abc341/submissions/50403560
 
-n = int(input())
-for i in range(n + 1):
-  print('1', end = '')
-  if i != n:
-    print(0, end = '')
+print(f'1{"01" * int(input())}')
