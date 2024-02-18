@@ -1,6 +1,4 @@
-// https://atcoder.jp/contests/abc341/submissions/50406812
-
-// https://atcoder.jp/contests/abc341/submissions/50390543
+// https://atcoder.jp/contests/abc341/submissions/50415545
 
 #include <bits/stdc++.h>
 using namespace std;
