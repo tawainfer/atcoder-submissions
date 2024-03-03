@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc343/submissions/50798772
+// https://atcoder.jp/contests/abc343/submissions/50859210
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,8 +8,6 @@ int main() {
   ll n, t;
   cin >> n >> t;
 
-  // set<int> se;
-  // se.insert(0);
   map<ll, ll> m;
   m[0] = n;
   ll cnt = 1;
@@ -21,14 +19,12 @@ int main() {
 
     m[p[a]]--;
     if(m[p[a]] == 0) {
-      // se.erase(p[a]);
       cnt--;
     }
 
     p[a] += b;
     if(m[p[a]] == 0) {
       cnt++;
-      // se.insert(p[a]);
     }
     m[p[a]]++;
 
