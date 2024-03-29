@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/arc175/submissions/51652516
+// https://atcoder.jp/contests/arc175/submissions/51766367
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -11,48 +11,69 @@ int main() {
   string s;
   cin >> s;
 
+  deque<char> d;
   vector<ll> st;
-  vector<bool> seen(2 * n, false);
-  for(int i = 0; i < s.size(); i++) {
+  vector<bool> check(2 * n, true);
+
+  for(int i = 0; i < 2 * n; i++) {
     if(s[i] == '(') {
       st.push_back(i);
-    } else if(s[i] == ')' && !st.empty()) {
-      seen[st.back()] = true;
-      seen[i] = true;
-      st.pop_back();
-    }
-  }
-
-  deque<char> d;
-  int cs = 0;
-  int ce = 0;
-  for(int i = 0; i < s.size(); i++) {
-    if(!seen[i]) {
-      d.push_back(s[i]);
-      if(s[i] == '(') {
-        cs++;
+    } else if(s[i] == ')') {
+      if(!st.empty()) {
+        st.pop_back();
       } else {
-        ce++;
+        check[i] = false;
       }
     }
   }
 
-  ll ans = abs(cs - ce) / 2 * b;
+  for(ll i : st) {
+    check[i] = false;
+  }
 
-  if(cs > ce) {
-    for(int _ = 0; _ < cs - ce; _++) {
-      d.pop_back();
-    }
-  } else if(cs < ce) {
-    for(int _ = 0; _ < ce - cs; _++) {
-      d.pop_front();
+  ll cl = 0;
+  ll cr = 0;
+  for(int i = 0; i < 2 * n; i++) {
+    if(!check[i]) {
+      d.push_back(s[i]);
+      if(s[i] == '(') {
+        cl++;
+      } else if(s[i] == ')') {
+        cr++;
+      }
     }
   }
 
-  // for(auto c : d) cout << c;
+  ll ans = 0;
+  while(cl != cr) {
+    ans += b;
 
-  ll hs = d.size() / 2;
-  // ans += min(hs / 2 * a + (hs % 2) * 2 * b, min((hs + 1) / 2 * a, (ll)d.size() * b));
-  ans += (hs + 1) / 2 * min(a, 2 * b);
+    if(cl > cr) {
+      for(int _ = 0; _ < 2; _++) {
+        d.pop_front();
+      }
+      cl -= 2;
+    } else if(cl < cr) {
+      for(int _ = 0; _ < 2; _++) {
+        d.pop_back();
+      }
+      cr -= 2;
+    }
+  }
+
+  while(!d.empty()) {
+    ans += min(a, 2 * b);
+
+    for(int _ = 0; _ < 2; _++) {
+      d.pop_front();
+    }
+
+    if(d.empty()) break;
+
+    for(int _ = 0; _ < 2; _++) {
+      d.pop_back();
+    }
+  }
+
   cout << ans;
 }
