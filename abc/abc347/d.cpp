@@ -1,23 +1,16 @@
-// https://atcoder.jp/contests/abc347/submissions/51896859
+// https://atcoder.jp/contests/abc347/submissions/51902720
 
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
-ll popcount(ll x) {
-  ll res = 0;
-  while (x != 0) {
-    res += x & 1;
-    x >>= 1LL;
-  }
-  return res;
-}
+typedef unsigned long long ull;
 
 int main() {
   ll a, b, c;
   cin >> a >> b >> c;
 
-  ll pc = popcount(c);
+  ull u = c;
+  ll pc = popcount(u);
   for(ll i = 0; i <= min(a, b); i++) {
     if((a - i) + (b - i) != pc) continue;
     if(i + pc > 60) continue;

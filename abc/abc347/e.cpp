@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc347/submissions/51850343
+// https://atcoder.jp/contests/abc347/submissions/51902383
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,7 @@ int main() {
   }
 
   set<ll> se;
-  vector<ll> si(q + 1, 0);
+  vector<ll> l(q + 1, 0);
 
   for(int i = 1; i <= q; i++) {
     ll x;
@@ -27,24 +27,21 @@ int main() {
       se.erase(x);
     }
 
-    si[i] = se.size();
+    l[i] = se.size();
   }
 
   for(int i = 1; i <= n; i++) {
     idx[i].push_back(q + 1);
   }
 
-  for(int i = 1; i < si.size(); i++) {
-    si[i] += si[i - 1];
+  for(int i = 1; i < l.size(); i++) {
+    l[i] += l[i - 1];
   }
 
   vector<ll> ans(n + 1, 0);
   for(int i = 1; i <= n; i++) {
-    // for(auto x : idx[i]) cout << x << " ";
-    // cout << endl;
-
     for(int j = 1; j < idx[i].size(); j++) {
-      ll s = si[idx[i][j] - 1] - si[idx[i][j - 1] - 1];
+      ll s = l[idx[i][j] - 1] - l[idx[i][j - 1] - 1];
       if(j % 2 == 0) {
         ans[i] += s;
       }
@@ -55,3 +52,4 @@ int main() {
     cout << ans[i] << " ";
   }
 }
+
