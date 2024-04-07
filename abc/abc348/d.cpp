@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc348/submissions/52097131
+// https://atcoder.jp/contests/abc348/submissions/52129097
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -43,7 +43,6 @@ int main() {
   vector<int> my = {-1, 0, 1, 0};
   vector<int> mx = {0, 1, 0, -1};
 
-  // 1
   vector<vector<int>> cost(h, vector<int>(w, INF));
   cost[gy][gx] = 0;
   priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> q;
@@ -67,13 +66,6 @@ int main() {
     }
   }
 
-  // for(int j = 0; j < h; j++) {
-  //   for(int k = 0; k < w; k++) {
-  //     cout << (cost[j][k] == INF ? -1 : cost[j][k]) << " ";
-  //   }
-  //   cout << endl;
-  // }
-
   vector<vector<int>> cost2(h, vector<int>(w, -INF));
   cost2[sy][sx] = med[sy][sx];
   priority_queue<vector<int>> q2;
@@ -92,7 +84,6 @@ int main() {
       if(!(0 <= ey && ey < h && 0 <= ex && ex < w)) continue;
       if(f[ey][ex] == '#') continue;
       if(cc == 0) continue;
-      // if(cost2[ey][ex] != INF) continue;
       int ec = max(cc - 1, med[ey][ex]);
       if(ec <= cost2[ey][ex]) continue;
       cost2[ey][ex] = ec;
@@ -100,17 +91,9 @@ int main() {
     }
   }
 
-  // for(int j = 0; j < h; j++) {
-  //   for(int k = 0; k < w; k++) {
-  //     cout << (cost2[j][k] == -INF ? -1 : cost2[j][k]) << " ";
-  //   }
-  //   cout << endl;
-  // }
-
   for(int i = 0; i < n; i++) {
     if(cost[r[i]][c[i]] == INF) continue;
     if(cost2[r[i]][c[i]] == -INF) continue;
-
     if(cost2[r[i]][c[i]] >= cost[r[i]][c[i]]) {
       cout << "Yes";
       return 0;
