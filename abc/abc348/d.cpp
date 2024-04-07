@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc348/submissions/52132299
+// https://atcoder.jp/contests/abc348/submissions/52132486
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -68,34 +68,5 @@ int main() {
     }
   }
 
-  vector<vector<int>> cost(h, vector<int>(w, INF));
-  cost[gy][gx] = 0;
-  q.push({0, gy, gx});
-
-  while(!q.empty()) {
-    int cc = q.front()[0];
-    int cy = q.front()[1];
-    int cx = q.front()[2];
-    q.pop();
-    if(cost[cy][cx] < cc) continue;
-
-    for(int j = 0; j < 4; j++) {
-      int ey = cy + my[j];
-      int ex = cx + mx[j];
-      if(!(0 <= ey && ey < h && 0 <= ex && ex < w)) continue;
-      if(f[ey][ex] == '#') continue;
-      if(cc + 1 >= cost[ey][ex]) continue;
-      cost[ey][ex] = cc + 1;
-      q.push({cc + 1, ey, ex});
-    }
-  }
-
-  for(int i = 0; i < n; i++) {
-    if(energy[r[i]][c[i]] >= cost[r[i]][c[i]]) {
-      cout << "Yes";
-      return 0;
-    }
-  }
-
-  cout << "No";
+  cout << (energy[gy][gx] >= 0 ? "Yes" : "No");
 }
