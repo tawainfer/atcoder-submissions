@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc348/submissions/52129097
+// https://atcoder.jp/contests/abc348/submissions/52132299
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -43,15 +43,39 @@ int main() {
   vector<int> my = {-1, 0, 1, 0};
   vector<int> mx = {0, 1, 0, -1};
 
+  vector<vector<int>> energy(h, vector<int>(w, -INF));
+  energy[sy][sx] = med[sy][sx];
+  queue<vector<int>> q;
+  q.push({med[sy][sx], sy, sx});
+
+  while(!q.empty()) {
+    int cc = q.front()[0];
+    int cy = q.front()[1];
+    int cx = q.front()[2];
+    q.pop();
+    if(energy[cy][cx] > cc) continue;
+
+    for(int j = 0; j < 4; j++) {
+      int ey = cy + my[j];
+      int ex = cx + mx[j];
+      if(!(0 <= ey && ey < h && 0 <= ex && ex < w)) continue;
+      if(f[ey][ex] == '#') continue;
+      if(cc == 0) continue;
+      int ec = max(cc - 1, med[ey][ex]);
+      if(ec <= energy[ey][ex]) continue;
+      energy[ey][ex] = ec;
+      q.push({ec, ey, ex});
+    }
+  }
+
   vector<vector<int>> cost(h, vector<int>(w, INF));
   cost[gy][gx] = 0;
-  priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> q;
   q.push({0, gy, gx});
 
   while(!q.empty()) {
-    int cc = q.top()[0];
-    int cy = q.top()[1];
-    int cx = q.top()[2];
+    int cc = q.front()[0];
+    int cy = q.front()[1];
+    int cx = q.front()[2];
     q.pop();
     if(cost[cy][cx] < cc) continue;
 
@@ -66,35 +90,8 @@ int main() {
     }
   }
 
-  vector<vector<int>> cost2(h, vector<int>(w, -INF));
-  cost2[sy][sx] = med[sy][sx];
-  priority_queue<vector<int>> q2;
-  q2.push({med[sy][sx], sy, sx});
-
-  while(!q2.empty()) {
-    int cc = q2.top()[0];
-    int cy = q2.top()[1];
-    int cx = q2.top()[2];
-    q2.pop();
-    if(cost2[cy][cx] > cc) continue;
-
-    for(int j = 0; j < 4; j++) {
-      int ey = cy + my[j];
-      int ex = cx + mx[j];
-      if(!(0 <= ey && ey < h && 0 <= ex && ex < w)) continue;
-      if(f[ey][ex] == '#') continue;
-      if(cc == 0) continue;
-      int ec = max(cc - 1, med[ey][ex]);
-      if(ec <= cost2[ey][ex]) continue;
-      cost2[ey][ex] = ec;
-      q2.push({ec, ey, ex});
-    }
-  }
-
   for(int i = 0; i < n; i++) {
-    if(cost[r[i]][c[i]] == INF) continue;
-    if(cost2[r[i]][c[i]] == -INF) continue;
-    if(cost2[r[i]][c[i]] >= cost[r[i]][c[i]]) {
+    if(energy[r[i]][c[i]] >= cost[r[i]][c[i]]) {
       cout << "Yes";
       return 0;
     }
