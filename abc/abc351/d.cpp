@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc351/submissions/52863393
+// https://atcoder.jp/contests/abc351/submissions/52915827
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,20 +27,12 @@ int main() {
           int x = j + mx[k];
           if(!(0 <= y && y < h && 0 <= x && x < w)) continue;
           if(f[y][x] != '#') f[y][x] = '!';
-          // seen[y][x] = true;
         }
       }
     }
   }
 
-  // for(int i = 0; i < h; i++) {
-  //   for(int j = 0; j < w; j++) {
-  //     cout << f[i][j];
-  //   }
-  //   cout << endl;
-  // }
-
-  vector<vector<int>> ptn; // cnt, sy, sx
+  vector<vector<int>> ptn;
   vector<pair<int, int>> stop;
 
   for(int i = 0; i < h; i++) {
@@ -84,9 +76,5 @@ int main() {
 
   sort(ptn.begin(), ptn.end());
   reverse(ptn.begin(), ptn.end());
-  // for(auto v : ptn) {
-  //   printf("(%d, %d, %d) ", v[0], v[1], v[2]);
-  // }
-
   cout << ptn[0][0];
 }
