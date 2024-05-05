@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc352/submissions/53161702
+// https://atcoder.jp/contests/abc352/submissions/53166432
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -72,10 +72,10 @@ int main() {
   for(int k = 0; k < m; k++) {
     int i = ptn[k].second;
     for(int j = 1; j < a[i].size(); j++) {
-      if(!uf.connected(a[i][0], a[i][j])) {
+      if(!uf.connected(a[i][j - 1], a[i][j])) {
         sum += ptn[k].first;
       }
-      uf.merge(a[i][0], a[i][j]);
+      uf.merge(a[i][j - 1], a[i][j]);
 
       if(uf.size(1) == n) {
         cout << sum;
