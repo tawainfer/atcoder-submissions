@@ -1,1 +1,0 @@
-print(45-sum(list(map(int, input()))))

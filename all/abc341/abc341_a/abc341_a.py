@@ -1,1 +1,0 @@
-print(f'1{"01" * int(input())}')

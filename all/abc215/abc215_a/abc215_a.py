@@ -1,1 +1,0 @@
-print("AC"if"Hello,World!"==input()else"WA")
