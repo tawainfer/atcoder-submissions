@@ -1,0 +1,2 @@
+s, t = list(input().split())
+print("Yes" if s < t else "No")

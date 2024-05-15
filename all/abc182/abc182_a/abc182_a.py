@@ -1,0 +1,1 @@
+x,y=map(int, input().split());print(2*x+100-y)

@@ -1,0 +1,1 @@
+print((io.read() + 1) % 2)

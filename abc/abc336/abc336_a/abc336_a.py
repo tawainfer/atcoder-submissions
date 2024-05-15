@@ -1,0 +1,1 @@
+print(f"L{int(input()) * 'o'}ng")
