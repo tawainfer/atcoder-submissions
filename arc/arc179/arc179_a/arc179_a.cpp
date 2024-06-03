@@ -10,13 +10,10 @@ int main() {
   for(auto &z : d) cin >> z;
   sort(d.begin(), d.end());
 
-  bool check = false;
-  if(k <= 0) check = true;
   ll sum = 0;
-
   vector<ll> ans;
   while(!d.empty()) {
-    if(check) {
+    if(k <= 0) {
       if(sum + d.back() < k) {
         cout << "No";
         return 0;
