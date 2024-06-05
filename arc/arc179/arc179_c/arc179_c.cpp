@@ -83,21 +83,8 @@ int main() {
 
   ll next_idx;
   while(idx.size() >= 2) {
-    // cout << "idx" << endl;
-    // for(auto x : idx) cout << x << " ";
-    // cout << endl;
     ll f = idx.front();
     ll b = idx.back();
-    // idx.pop_front();
-    // idx.pop_back();
-
-    // for(int i = 0; i < idx.size(); i++) {
-    //   if(max(f, b) < idx[i]) {
-    //     idx[i] -= 2;
-    //   } else if(min(f, b) < idx[i]) {
-    //     idx[i]--;
-    //   }
-    // }
 
     cout << "+ " << f << " " << b << endl;
     ll q;
