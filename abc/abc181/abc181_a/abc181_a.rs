@@ -4,6 +4,6 @@ fn main() {
     input! {
         n: u8,
     }
-    if n % 2 == 0 {print!("White")}
-    else {print!("Black")}
+
+    print!("{}", if n % 2 == 0 {"White"} else {"Black"});
 }

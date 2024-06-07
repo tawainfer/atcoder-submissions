@@ -1,11 +1,11 @@
-use::proconio;
+use proconio::input;
 
 fn main() {
-  proconio::input! {
-    n: u16,
-    a: u16,
-    b: u16,
-  }
+    input! {
+        n: u16,
+        a: u16,
+        b: u16,
+    }
 
-  println!("{}", n - a + b);
+    print!("{}", n - a + b);
 }
