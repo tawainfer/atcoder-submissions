@@ -2,8 +2,9 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32
+        a: i16,
+        b: i16,
     }
-    println!("{}", 2 * a + 100 - b);
+
+    print!("{}", 2 * a + 100 - b);
 }
