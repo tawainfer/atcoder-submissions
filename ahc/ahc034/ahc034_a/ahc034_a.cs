@@ -2,7 +2,28 @@ using System;
 using System.Text;
 using System.Diagnostics;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using static System.Console;
+
+public static class Extensions {
+  private static Random r = new Random();
+
+  public static void Shuffle<T>(this IList<T> list) {
+    for (int i = list.Count - 1; i > 0; i--) {
+      int j = r.Next(0, i + 1);
+      var tmp = list[i];
+      list[i] = list[j];
+      list[j] = tmp;
+    }
+  }
+}
+
+public static class DeepCopy {
+  public static T Clone<T>(T obj) {
+    string json = JsonConvert.SerializeObject(obj);
+    return JsonConvert.DeserializeObject<T>(json);
+  }
+}
 
 public class MainClass {
   public static void Show(List<List<int>> f) {
@@ -65,13 +86,7 @@ public class MainClass {
 
   public static List<string> Tidy(int cy, int cx, int max_w, int n, List<List<int>> e) {
     var res = new List<string>();
-    var f = new List<List<int>>();
-    for(int i = 0; i < e.Count; i++) {
-      f.Add(new List<int>());
-      for(int j = 0; j < e[i].Count; j++) {
-        f[i].Add(e[i][j]);
-      }
-    }
+    var f = DeepCopy.Clone(e);
 
     var my = new List<int>(){-1, 0, 1, 0};
     var mx = new List<int>(){0, -1, 0, 1};
@@ -187,16 +202,17 @@ public class MainClass {
     var ans = new List<string>();
 
     int search_point = 0;
-    // while(stopwatch.Elapsed < timeout) {
-    foreach(var p in points) {
-      int abs = p[0];
-      int ty = p[1];
-      int tx = p[2];
+    while(stopwatch.Elapsed < timeout) {
+    // foreach(var p in points) {
+      var rand = new Random();
+      int idx = rand.Next(n * n);
+      int abs = points[idx][0];
+      int ty = points[idx][1];
+      int tx = points[idx][2];
       // if(abs != min_abs) break;
-      if(stopwatch.Elapsed >= timeout) break;
+      // if(stopwatch.Elapsed >= timeout) break;
       search_point++;
 
-      var rand = new Random();
       // int ty = rand.Next(n);
       // int tx = rand.Next(n);
       var res1 = Move(0, 0, ty, tx);
