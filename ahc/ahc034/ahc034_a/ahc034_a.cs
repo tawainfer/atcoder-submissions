@@ -180,7 +180,7 @@ public class MainClass {
         points.Add(new List<int>(){abs, i, j});
       }
     }
-    points.Sort((v1, v2) => v1[0] - v2[0]);
+    points.Sort((v1, v2) => v2[0] - v1[0]);
     int min_abs = points[0][0];
 
     long max_score = -1;
