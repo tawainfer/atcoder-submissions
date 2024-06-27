@@ -1,3 +1,6 @@
 x = int(input())
-if x == 1: print(0)
-else: print(1)
+
+if x == 0:
+  print(1)
+else:
+  print(0)
