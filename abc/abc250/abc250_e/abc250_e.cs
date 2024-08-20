@@ -9,8 +9,8 @@ public class Program
         var b = ReadLine()!.Split().Select(long.Parse).ToList();
 
         Dictionary<long, long> hash = new();
-        foreach (long x in a) hash[x] = new Random().NextInt64(1L << 30);
-        foreach (long x in b) hash[x] = new Random().NextInt64(1L << 30);
+        foreach (long x in a) hash[x] = new Random().NextInt64(1L << 16);
+        foreach (long x in b) hash[x] = new Random().NextInt64(1L << 16);
 
         List<long> sa = new() { 0, };
         List<long> sb = new() { 0, };
