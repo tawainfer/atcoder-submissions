@@ -8,15 +8,9 @@ public class Program
         var a = ReadLine()!.Split().Select(long.Parse).ToList();
         var b = ReadLine()!.Split().Select(long.Parse).ToList();
 
-        Dictionary<long, long> table = new();
-        foreach (long x in a)
-        {
-            table[x] = new Random().NextInt64(1L << 60);
-        }
-        foreach (long x in b)
-        {
-            table[x] = new Random().NextInt64(1L << 60);
-        }
+        Dictionary<long, long> hash = new();
+        foreach (long x in a) hash[x] = new Random().NextInt64(1L << 30);
+        foreach (long x in b) hash[x] = new Random().NextInt64(1L << 30);
 
         List<long> sa = new() { 0, };
         List<long> sb = new() { 0, };
@@ -32,7 +26,7 @@ public class Program
             else
             {
                 ma.Add(a[i]);
-                sa.Add(sa.Last() ^ table[a[i]]);
+                sa.Add(sa.Last() + hash[a[i]]);
             }
 
             if (mb.Contains(b[i]))
@@ -42,7 +36,7 @@ public class Program
             else
             {
                 mb.Add(b[i]);
-                sb.Add(sb.Last() ^ table[b[i]]);
+                sb.Add(sb.Last() + hash[b[i]]);
             }
         }
 
