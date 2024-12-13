@@ -1,0 +1,1 @@
+[ $(cat | grep -o . | sort | tr -d '\n') -eq 122333 ] && echo Yes || echo No
